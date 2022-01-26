@@ -14,7 +14,7 @@ import (
 func Test_ArticleController(t *testing.T) {
 
 	t.Run("Test_Create", func(t *testing.T) {
-		req, err := http.NewRequest(http.MethodPost, srv.URL+"/api/articles", nil)
+		req, err := http.NewRequest(http.MethodPost, srv.URL+"/articles", nil)
 		if err != nil {
 			t.Error(err)
 		}
@@ -35,7 +35,7 @@ func Test_ArticleController(t *testing.T) {
 			t.Error(err)
 		}
 
-		req, err = http.NewRequest(http.MethodPost, srv.URL+"/api/articles", bytes.NewBuffer(payload))
+		req, err = http.NewRequest(http.MethodPost, srv.URL+"/articles", bytes.NewBuffer(payload))
 		if err != nil {
 			t.Error(err)
 		}
@@ -59,7 +59,7 @@ func Test_ArticleController(t *testing.T) {
 			t.Error(err)
 		}
 
-		req, err := http.NewRequest(http.MethodPost, srv.URL+"/api/articles", bytes.NewBuffer(payload))
+		req, err := http.NewRequest(http.MethodPost, srv.URL+"/articles", bytes.NewBuffer(payload))
 		if err != nil {
 			t.Error(err)
 		}
@@ -82,7 +82,7 @@ func Test_ArticleController(t *testing.T) {
 			t.Error(err)
 		}
 
-		req, err = http.NewRequest(http.MethodGet, srv.URL+"/api/articles/"+strconv.Itoa(article.ID), nil)
+		req, err = http.NewRequest(http.MethodGet, srv.URL+"/articles/"+strconv.Itoa(article.ID), nil)
 		if err != nil {
 			t.Error(err)
 		}
@@ -117,7 +117,7 @@ func Test_ArticleController(t *testing.T) {
 	})
 
 	t.Run("Test_GetAll", func(t *testing.T) {
-		req, err := http.NewRequest(http.MethodGet, srv.URL+"/api/articles?page=1&limit=10", nil)
+		req, err := http.NewRequest(http.MethodGet, srv.URL+"/articles?page=1&limit=10", nil)
 		if err != nil {
 			t.Error(err)
 		}
@@ -146,7 +146,7 @@ func Test_ArticleController(t *testing.T) {
 	})
 
 	t.Run("Test_Search", func(t *testing.T) {
-		req, err := http.NewRequest(http.MethodGet, srv.URL+"/api/articles/search?q=test", nil)
+		req, err := http.NewRequest(http.MethodGet, srv.URL+"/articles/search?q=test", nil)
 		if err != nil {
 			t.Error(err)
 		}

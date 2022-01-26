@@ -41,7 +41,7 @@ func Test_NewRouter(t *testing.T) {
 		t.Error("Expected status code to be 200")
 	}
 
-	req, err = http.NewRequest(http.MethodGet, srv.URL+"/api/ofdjk", nil)
+	req, err = http.NewRequest(http.MethodGet, srv.URL+"/ofdjk", nil)
 	if err != nil {
 		t.Error(err)
 	}

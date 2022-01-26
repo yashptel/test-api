@@ -6,7 +6,7 @@ import (
 	"github.com/yashptel/test-api/pkg/utils"
 )
 
-const prefix = "/api"
+const prefix = ""
 
 func NewRouter() *http.ServeMux {
 
