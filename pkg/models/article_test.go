@@ -83,6 +83,9 @@ func Test_Create(t *testing.T) {
 }
 
 func Test_GetAll(t *testing.T) {
+
+	resetArticles()
+
 	res, err := NewArticleClient().GetAllWithPagination(1, 10)
 	if err != nil {
 		t.Error(err)
@@ -122,5 +125,45 @@ func Test_Search(t *testing.T) {
 
 	if len(res) != 1 {
 		t.Error("Expected 1 article but got", len(res))
+	}
+}
+
+func resetArticles() {
+	articles = []Article{
+		{
+			ID:        1,
+			Title:     "Article 1",
+			SubTitle:  "Sub title 1",
+			Content:   "Content 1",
+			CreatedAt: time.Now(),
+		},
+		{
+			ID:        2,
+			Title:     "Article 2",
+			SubTitle:  "Sub title 2",
+			Content:   "Content 2",
+			CreatedAt: time.Now(),
+		},
+		{
+			ID:        3,
+			Title:     "Article 3",
+			SubTitle:  "Sub title 3",
+			Content:   "Content 3",
+			CreatedAt: time.Now(),
+		},
+		{
+			ID:        4,
+			Title:     "Article 4",
+			SubTitle:  "Sub title 4",
+			Content:   "Content 4",
+			CreatedAt: time.Now(),
+		},
+		{
+			ID:        5,
+			Title:     "Article 5",
+			SubTitle:  "Sub title 5",
+			Content:   "Content 5",
+			CreatedAt: time.Now(),
+		},
 	}
 }
