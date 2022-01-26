@@ -18,7 +18,7 @@ func NewRouter() *http.ServeMux {
 }
 
 func SetupHealthCheck(mux *http.ServeMux) {
-	mux.HandleFunc(prefix+"/healthz", func(w http.ResponseWriter, r *http.Request) {
+	mux.HandleFunc("/healthz", func(w http.ResponseWriter, r *http.Request) {
 		utils.JSONWrite(w, http.StatusOK, "OK")
 	})
 }

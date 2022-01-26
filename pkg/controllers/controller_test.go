@@ -29,7 +29,7 @@ func Test_NewRouter(t *testing.T) {
 		t.Error("Expected router to be not nil")
 	}
 
-	req, err := http.NewRequest(http.MethodGet, srv.URL+"/api/healthz", nil)
+	req, err := http.NewRequest(http.MethodGet, srv.URL+"/healthz", nil)
 	if err != nil {
 		t.Error(err)
 	}

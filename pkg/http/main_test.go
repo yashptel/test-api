@@ -10,7 +10,7 @@ func Test_RunHttpServer(t *testing.T) {
 	go RunHttpServer()
 	time.Sleep(time.Second)
 
-	req, err := http.NewRequest(http.MethodGet, "http://localhost:8080/api/healthz", nil)
+	req, err := http.NewRequest(http.MethodGet, "http://localhost:8080/healthz", nil)
 	if err != nil {
 		t.Error(err)
 	}
