@@ -1,5 +1,4 @@
-# Go RESTful API Starter Kit (Boilerplate)
-
+# Go Articles API
 ## Getting Started
 
 If this is your first time encountering Go, please follow [the instructions](https://golang.org/doc/install) to
