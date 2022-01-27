@@ -19,7 +19,7 @@ go run main.go
 
 At this time, you have a RESTful API server running at `http://127.0.0.1:8080`. It provides the following endpoints:
 
-- `GET /healthz`: a healthcheck service provided for health checking purpose (needed when implementing a server cluster)
+- `GET /healthz`: a healthcheck service provided for health checking purpose
 - `POST api/articles`: create new article with body.
   ```json
   {
