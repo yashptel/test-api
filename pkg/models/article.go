@@ -2,6 +2,7 @@ package models
 
 import (
 	"strings"
+	"sync"
 	"time"
 )
 
@@ -34,6 +35,7 @@ func NewArticleClient() ArticleRepository {
 	return &ArticleClient{}
 }
 
+var mu sync.Mutex
 var articles = []Article{
 	{
 		ID:        1,
@@ -84,6 +86,8 @@ func (c *ArticleClient) GetByID(id int) (*Article, error) {
 func (c *ArticleClient) Create(article *Article) error {
 	article.ID = len(articles) + 1
 	article.CreatedAt = time.Now()
+	mu.Lock()
+	defer mu.Unlock()
 	articles = append(articles, *article)
 	return nil
 }
