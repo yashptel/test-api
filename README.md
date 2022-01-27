@@ -30,7 +30,7 @@ At this time, you have a RESTful API server running at `http://127.0.0.1:8080`. 
   ```
 - `GET /articles?page=1&limit=10`: returns a paginated list of the articles
 - `GET /articles/:id`: returns the detailed information of an album
-- `POST /articles/search?q=search_query`: search for article. It returns matching articles in fields: title, subtitle and content.
+- `GET /articles/search?q=search_query`: search for article. It returns matching articles in fields: title, subtitle and content.
 
 Try the URL `http://localhost:8080/healthz` in a browser, and you should see something like `"OK"` displayed.
 
