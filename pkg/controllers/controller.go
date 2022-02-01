@@ -29,9 +29,9 @@ func SetupArticleRoutes(mux *http.ServeMux) {
 
 	mux.HandleFunc(prefix+"/articles", func(w http.ResponseWriter, r *http.Request) {
 		switch r.Method {
-		case "GET":
+		case http.MethodGet:
 			ac.GetArticles(w, r)
-		case "POST":
+		case http.MethodPost:
 			ac.CreateArticle(w, r)
 		default:
 			utils.JSONError(w, http.StatusMethodNotAllowed, "Method Not Allowed")
@@ -40,7 +40,7 @@ func SetupArticleRoutes(mux *http.ServeMux) {
 
 	mux.HandleFunc(prefix+"/articles/", func(w http.ResponseWriter, r *http.Request) {
 		switch r.Method {
-		case "GET":
+		case http.MethodGet:
 			ac.GetArticle(w, r)
 		default:
 			utils.JSONError(w, http.StatusMethodNotAllowed, "Method Not Allowed")
@@ -49,11 +49,10 @@ func SetupArticleRoutes(mux *http.ServeMux) {
 
 	mux.HandleFunc(prefix+"/articles/search", func(w http.ResponseWriter, r *http.Request) {
 		switch r.Method {
-		case "GET":
+		case http.MethodGet:
 			ac.SearchArticles(w, r)
 		default:
 			utils.JSONError(w, http.StatusMethodNotAllowed, "Method Not Allowed")
 		}
 	})
-
 }

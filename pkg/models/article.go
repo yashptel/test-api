@@ -29,6 +29,7 @@ type ArticleRepository interface {
 }
 
 type ArticleClient struct {
+	// db conn goes here
 }
 
 func NewArticleClient() ArticleRepository {
@@ -108,6 +109,13 @@ func (c *ArticleClient) Search(query string) ([]Article, error) {
 }
 
 func (c *ArticleClient) GetAllWithPagination(page int, limit int) (ArticleList, error) {
+
+	if page < 1 || limit < 1 {
+		return ArticleList{
+			Articles: []Article{},
+		}, nil
+	}
+
 	var res ArticleList
 	start := (page - 1) * limit
 	end := start + limit
